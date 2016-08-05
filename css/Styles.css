@@ -1,0 +1,12 @@
+﻿body {
+   padding-top: 70px;
+}
+
+
+.hide {
+   visibility:hidden;
+}
+
+ th{
+  text-align:center;
+}

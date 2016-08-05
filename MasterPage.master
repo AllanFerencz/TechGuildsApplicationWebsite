@@ -1,0 +1,78 @@
+﻿<%@ Master Language="VB" CodeFile="MasterPage.master.vb" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content="Simple Login and Register Website with Form to submit information"/>
+    <meta name="author" content="Allan Ferencz"/>
+
+    <title>Tech Guilds Assignment Website</title>
+    
+    <link runat="server" href="~/css/bootstrap.css" rel="stylesheet" />
+    <link runat="server" href="~/css/Styles.css" rel="stylesheet" />
+
+    <asp:ContentPlaceHolder id="cbhHead" runat="server">
+    </asp:ContentPlaceHolder>
+
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="<%= Page.ResolveClientUrl("~/Welcome.aspx")%>">Tech Guilds Example</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="<%= Page.ResolveClientUrl("~/Subscribe.aspx")%>">Subscribe</a>
+                    </li>
+                    <li>
+                        <a href="<%= Page.ResolveClientUrl("~/Registration.aspx")%>">Register</a>
+                    </li>
+                    <li>
+                        <a href="<%= Page.ResolveClientUrl("~/Login.aspx")%>">Login</a>
+                    </li>
+                    <li id="Admin">
+                        <a href="/Account/BackOfficeSubscriptions.aspx">BackOffice</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div id="LoginRole" class="hide"> <%Response.Write(Session("LoginRole"))%></div>
+    <script src="<%= Page.ResolveClientUrl("~/js/Scripts.js")%>"></script>
+    <script type="text/javascript">
+        isLogin();
+    </script>
+    <div class="container">
+        
+        
+        <div class="" role="alert" id="lblSiteMessage" runat="server"></div>
+
+
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <asp:ContentPlaceHolder id="cphMainContent" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+        </div>
+
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="<%= Page.ResolveClientUrl("~/js/bootstrap.min.js")%>"></script>
+
+
+
+</body>
+</html>
